@@ -1,0 +1,120 @@
+@import "variables";
+@import "mixins";
+
+// @include breakpoint-up(large) {
+//   flex-direction: row;
+// }
+
+.countryCards {
+  // padding: 1.25rem 1.5rem 1.25rem 1.5rem;
+  .container {
+  }
+
+  &__cards {
+    display: flex;
+    flex-direction: row;
+    // align-items: center;
+    justify-content: center;
+    -webkit-display: box;
+    -moz-display: box;
+    -ms-display: flexbox;
+    -webkit-display: flex;
+    flex-wrap: wrap;
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+
+    &.darkModeOn {
+      color: $white;
+    }
+
+    @include breakpoint-up(large) {
+      display: flex;
+    }
+
+    .card {
+      display: flex;
+      margin-bottom: 2rem;
+      width: 100%;
+
+      
+
+      @include breakpoint-down(medium) {
+        width: 100%;
+      }
+
+      @include breakpoint-up(large) {
+        width: 17.5rem;
+        margin-right: 1.4375rem;
+        &:not(:last-child) {
+          padding-right: 0.9rem;
+        }
+      }
+
+      &__item {
+        display: flex;
+        flex-direction: column;
+        background-color: #fff;
+        width: 100%;
+        border-radius: 5px;
+        overflow: hidden;
+
+        &.darkModeOn {
+          background: $darkModeBlue;
+        }
+
+        .card-image {
+          height: 200px;
+          overflow: hidden;
+          background-size: contain;
+          // background-position: center center;
+          background-repeat: no-repeat;
+          // border-radius: 6px 6px 0px 0px;
+          opacity: 0.91;
+          // margin-bottom: 1.875rem;
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+
+        .card-info {
+          padding: 0 1.3125rem;
+          @include breakpoint-down(medium) {
+            text-align: left;
+          }
+
+          
+
+          small {
+            font-size: 0.75rem;
+            color: $darkBlueText;
+            
+            &.darkModeOn {
+              color: $white ;
+            }
+            span {
+              font-weight:800;
+            }
+          }
+
+          h2 {
+            font-size: $font-med;
+            color: $darkBlueText;
+            margin-top: 1.0625rem;
+
+            &.darkModeOn {
+              color: $white ;
+            }
+          }
+
+          p {
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+  }
+}
